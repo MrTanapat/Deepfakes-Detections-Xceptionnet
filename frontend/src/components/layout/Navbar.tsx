@@ -3,16 +3,26 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/app/providers/language-provider";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+
+  const { t } = useLanguage();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const navItems = [
+    { key: "how", label: t("navbar.how") },
+    { key: "features", label: t("navbar.features") },
+    { key: "stats", label: t("navbar.stats") },
+  ];
 
   return (
     <nav
@@ -23,55 +33,53 @@ export default function Navbar() {
           : "py-6"
       )}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6">
         {/* Logo */}
-        <div className="flex items-center gap-3 cursor-pointer group">
-          <div className="w-8 h-8 relative">
-            <div className="absolute inset-0 border-2 border-emerald-500 rotate-45 group-hover:rotate-[60deg] transition-transform duration-300" />
-            <div className="absolute inset-1.5 bg-emerald-500 rotate-45" />
-          </div>
-          <span className="font-mono text-gray-900 font-bold tracking-widest text-sm uppercase">
+        <div className="group flex cursor-pointer items-center gap-3">
+          <span className="text-xl font-bold uppercase tracking-widest text-gray-900">
             Lanner
           </span>
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8 text-xs font-mono tracking-wider text-gray-900 uppercase">
-          {["how", "features", "stats"].map((item) => (
+        <div className="hidden items-center gap-8 text-md uppercase tracking-wider tracking-wide text-gray-900 md:flex">
+          {navItems.map((item) => (
             <a
-              key={item}
-              href={`#${item}`}
-              className="relative hover:text-emerald-500 transition-colors group"
+              key={item.key}
+              href={`#${item.key}`}
+              className="group relative transition-colors hover:text-emerald-500"
             >
-              {item}
-              <span className="absolute left-0 -bottom-1 w-0 h-px bg-emerald-500 group-hover:w-full transition-all duration-300" />
+              {item.label}
+              <span className="absolute left-0 -bottom-1 h-px w-0 bg-emerald-500 transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
         </div>
 
         {/* Right */}
         <div className="flex items-center gap-3">
+          <div className="hidden md:block">
+            <LanguageSwitcher />
+          </div>
 
           <Link
             href="/login"
-            className="hidden md:block text-xs font-mono tracking-wider text-gray-900 hover:text-emerald-500 transition uppercase px-4 py-2"
+            className="hidden px-4 py-2 text-md uppercase tracking-wider text-gray-900 transition hover:text-emerald-500 md:block"
           >
-            Sign in
+            {t("common.signIn")}
           </Link>
 
           <Link
             href="/register"
-            className="hidden md:block relative text-xs font-mono tracking-wider bg-emerald-500 text-black font-bold uppercase px-5 py-2 overflow-hidden group"
+            className="group relative hidden overflow-hidden bg-emerald-500 rounded-md px-5 py-2 text-md font-bold uppercase tracking-wider text-black md:block"
           >
-            <span className="relative z-10">Get started</span>
-            <div className="absolute inset-0 bg-emerald-400 opacity-0 group-hover:opacity-100 transition duration-300" />
+            <span className="relative z-10">{t("common.getStarted")}</span>
+            <div className="absolute inset-0 bg-emerald-400 opacity-0 transition duration-300 group-hover:opacity-100" />
           </Link>
 
           {/* Mobile button */}
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden text-gray-900 p-2"
+            className="p-2 text-gray-900 md:hidden"
           >
             {menuOpen ? "✕" : "☰"}
           </button>
@@ -81,30 +89,36 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "md:hidden overflow-hidden transition-all duration-500",
+          "overflow-hidden transition-all duration-500 md:hidden",
           menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
         )}
       >
-        <div className="bg-white/80 backdrop-blur-md border-b shadow-lg border-gray-100 border-t px-6 py-6 space-y-4 font-mono text-sm uppercase text-gray-900">
+        <div className="space-y-4 border-b border-t border-gray-100 bg-white/80 px-6 py-6 text-sm uppercase text-gray-900 shadow-lg backdrop-blur-md">
+          <div className="pb-2">
+            <LanguageSwitcher />
+          </div>
 
-          {["how", "features", "stats"].map((item) => (
+          {navItems.map((item) => (
             <a
-              key={item}
-              href={`#${item}`}
+              key={item.key}
+              href={`#${item.key}`}
               onClick={() => setMenuOpen(false)}
-              className="block hover:text-emerald-500 transition"
+              className="block transition hover:text-emerald-500"
             >
-              {item}
+              {item.label}
             </a>
           ))}
 
-          <div className="pt-4 flex flex-col gap-3">
-            <Link href="/login" className="text-center border border-slate-600 py-2">
-              Sign in
+          <div className="flex flex-col gap-3 pt-4">
+            <Link href="/login" className="border border-slate-600 py-2 text-center">
+              {t("common.signIn")}
             </Link>
 
-            <Link href="/register" className="text-center bg-emerald-500 text-black py-2 font-bold">
-              Get started
+            <Link
+              href="/register"
+              className="bg-emerald-500 py-2 text-center font-bold text-black"
+            >
+              {t("common.getStarted")}
             </Link>
           </div>
         </div>

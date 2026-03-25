@@ -230,8 +230,7 @@ function Footer() {
 // ─── root ─────────────────────────────────────────────────────────────────────
 export default function LandingPage() {
   return (
-    <main className="min-h-screen bg-white text-gray-900"
-      style={{ fontFamily: "'DM Sans', sans-serif" }}>
+    <main className="min-h-screen bg-white text-gray-900">
       <Navbar />
       <Hero />
       <Divider />

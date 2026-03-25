@@ -1,1 +1,22 @@
 @import "tailwindcss";
+
+body {
+  font-family: var(--font-dm-sans), var(--font-thai), sans-serif;
+}
+
+/* Language Switcher */
+@keyframes lang-switch {
+  0% {
+    opacity: 0;
+    transform: translateY(6px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-lang-switch {
+  display: inline-block;
+  animation: lang-switch 0.22s ease-out;
+}
