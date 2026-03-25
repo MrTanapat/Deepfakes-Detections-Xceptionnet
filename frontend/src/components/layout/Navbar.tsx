@@ -57,9 +57,14 @@ export default function Navbar() {
 
         {/* Right */}
         <div className="flex items-center gap-3">
-          <div className="hidden md:block">
-            <LanguageSwitcher />
-          </div>
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="mt-1 text-sm font-medium normal-case text-gray-800">
+              </p>
+            </div>
+
+            <LanguageSwitcher mobile />
+        </div>
 
           <Link
             href="/login"
@@ -94,10 +99,6 @@ export default function Navbar() {
         )}
       >
         <div className="space-y-4 border-b border-t border-gray-100 bg-white/80 px-6 py-6 text-sm uppercase text-gray-900 shadow-lg backdrop-blur-md">
-          <div className="pb-2">
-            <LanguageSwitcher />
-          </div>
-
           {navItems.map((item) => (
             <a
               key={item.key}
