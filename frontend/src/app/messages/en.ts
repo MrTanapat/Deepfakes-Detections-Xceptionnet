@@ -98,6 +98,74 @@ cta: {
   button: "Start Detection",
 },
 footer: {
-  project: "ระบบตรวจจับ Deepfake — โปรเจกต์จบ มทร.ล้านนา",
+  project: "Deepfake Detection System — RMUTL Senior Project",
+},
+auth: {
+  tabs: {
+    login: "Login",
+    register: "Register",
+  },
+  headings: {
+    login: {
+      title: "Welcome back.",
+      description: "Sign in to access your detection history and dashboard.",
+    },
+    register: {
+      title: "Create account.",
+      description: "Join Veridex and start detecting deepfakes instantly.",
+    },
+  },
+  fields: {
+    username: {
+      label: "Username",
+      placeholder: "your_username",
+    },
+    email: {
+      label: "Email",
+      placeholder: "you@example.com",
+    },
+    password: {
+      label: "Password",
+      placeholder: "••••••••",
+    },
+    confirmPassword: {
+      label: "Confirm Password",
+      placeholder: "••••••••",
+    },
+  },
+  actions: {
+    backToHome: "Back to Home",
+    forgotPassword: "Forgot password?",
+    processing: "Processing...",
+    submitLogin: "Sign In",
+    submitRegister: "Create Account",
+    divider: "or",
+    switchToRegisterText: "Don't have an account? ",
+    switchToRegisterAction: "Register",
+    switchToLoginText: "Already have an account? ",
+    switchToLoginAction: "Sign In",
+  },
+  errors: {
+    invalidEmail: "Invalid email address",
+    minPassword: "Minimum 8 characters",
+    usernameRequired: "Username is required",
+    passwordsNotMatch: "Passwords do not match",
+  },
+  showcase: {
+    brand: "Veridex",
+    accuracy: "Accuracy",
+    engine: "Engine",
+    quote: "The boundary between real and synthetic is no longer visible to the naked eye.",
+    source: "Veridex Research, 2025",
+  },
+  auth: {
+  errors: {
+    invalidEmail: "Invalid email address",
+    minPassword: "Minimum 8 characters",
+    usernameRequired: "Username is required",
+    passwordsNotMatch: "Passwords do not match",
+    invalidCredentials: "Invalid email or password",
+  },
+}
 },
 } as const;

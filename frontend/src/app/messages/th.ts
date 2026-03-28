@@ -100,4 +100,72 @@ cta: {
 footer: {
   project: "Deepfake Detection System — RMUTL Senior Project",
 },
+auth: {
+  tabs: {
+    login: "เข้าสู่ระบบ",
+    register: "สมัครสมาชิก",
+  },
+  headings: {
+    login: {
+      title: "ยินดีต้อนรับกลับ",
+      description: "เข้าสู่ระบบเพื่อดูประวัติการตรวจจับและแดชบอร์ดของคุณ",
+    },
+    register: {
+      title: "สร้างบัญชี",
+      description: "เริ่มใช้งาน Veridex และตรวจจับดีปเฟกได้ทันที",
+    },
+  },
+  fields: {
+    username: {
+      label: "ชื่อผู้ใช้",
+      placeholder: "ชื่อผู้ใช้ของคุณ",
+    },
+    email: {
+      label: "อีเมล",
+      placeholder: "you@example.com",
+    },
+    password: {
+      label: "รหัสผ่าน",
+      placeholder: "••••••••",
+    },
+    confirmPassword: {
+      label: "ยืนยันรหัสผ่าน",
+      placeholder: "••••••••",
+    },
+  },
+  actions: {
+    forgotPassword: "ลืมรหัสผ่าน?",
+    processing: "กำลังประมวลผล...",
+    submitLogin: "เข้าสู่ระบบ",
+    submitRegister: "สร้างบัญชี",
+    divider: "หรือ",
+    switchToRegisterText: "ยังไม่มีบัญชี? ",
+    switchToRegisterAction: "สมัครสมาชิก",
+    switchToLoginText: "มีบัญชีอยู่แล้ว? ",
+    switchToLoginAction: "เข้าสู่ระบบ",
+    backToHome: "กลับสู่หน้าหลัก",
+  },
+  errors: {
+    invalidEmail: "รูปแบบอีเมลไม่ถูกต้อง",
+    minPassword: "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร",
+    usernameRequired: "กรุณากรอกชื่อผู้ใช้",
+    passwordsNotMatch: "รหัสผ่านไม่ตรงกัน",
+  },
+  showcase: {
+    brand: "Veridex",
+    accuracy: "ความแม่นยำ",
+    engine: "เอนจิน",
+    quote: "เส้นแบ่งระหว่างของจริงกับสื่อสังเคราะห์นั้น มองไม่เห็นได้ด้วยตาเปล่าอีกต่อไป",
+    source: "Veridex Research, 2025",
+  },
+  auth: {
+  errors: {
+    invalidEmail: "รูปแบบอีเมลไม่ถูกต้อง",
+    minPassword: "รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร",
+    usernameRequired: "กรุณากรอกชื่อผู้ใช้",
+    passwordsNotMatch: "รหัสผ่านไม่ตรงกัน",
+    invalidCredentials: "อีเมลหรือรหัสผ่านไม่ถูกต้อง",
+  },
+}
+},
 } as const;
