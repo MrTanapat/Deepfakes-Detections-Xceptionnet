@@ -159,9 +159,12 @@ export default function AuthForm({
             </button>
           </div>
 
-          <h1 className="mb-2 font-[family-name:var(--font-syne)] text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <h1
+            className={`mb-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl ${mode === "login" ? "sm:leading-snug" : "sm:leading-tight"
+            }`}
+            >
             {mode === "login" ? text.loginTitle : text.registerTitle}
-          </h1>
+            </h1>
 
           <p className="text-sm leading-relaxed text-gray-500">
             {mode === "login" ? text.loginDescription : text.registerDescription}

@@ -107,12 +107,12 @@ auth: {
   },
   headings: {
     login: {
-      title: "ยินดีต้อนรับกลับ",
+      title: "ยินดีต้อนรับ",
       description: "เข้าสู่ระบบเพื่อดูประวัติการตรวจจับและแดชบอร์ดของคุณ",
     },
     register: {
       title: "สร้างบัญชี",
-      description: "เริ่มใช้งาน Veridex และตรวจจับดีปเฟกได้ทันที",
+      description: "เริ่มใช้งานการตรวจจับ Deepfake ได้ทันที",
     },
   },
   fields: {

@@ -107,12 +107,12 @@ auth: {
   },
   headings: {
     login: {
-      title: "Welcome back.",
+      title: "Welcome.",
       description: "Sign in to access your detection history and dashboard.",
     },
     register: {
       title: "Create account.",
-      description: "Join Veridex and start detecting deepfakes instantly.",
+      description: "Join and start detecting deepfakes instantly.",
     },
   },
   fields: {
